@@ -1,0 +1,62 @@
+#homeApp {
+  padding: 120px 0 80px 0;
+
+  background-size: contain;
+  color: white;
+}
+#homeApp .mainMaxWidth {
+  width: 100%;
+  float: none;
+  clear: both;
+}
+
+#homeApp .left {
+  padding: 60px;
+}
+#homeApp .text-left {
+  font-weight: 600;
+  font-size: 30px;
+  margin: 0 0 10px;
+}
+#homeApp .textSmallLeft {
+  font-size: medium;
+  margin: 0 0 10px;
+}
+#homeApp .buttonLeft {
+  background-color: red;
+  padding: 10px 20px;
+  font-size: medium;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  color: white;
+}
+
+/* carousel auto slder */
+.app__content .phone-img img {
+  width: 100%;
+  /* position: relative; */
+  /* padding: 0 28px; */
+  /* height: 420px;
+    width: 270  px; */
+}
+.app__content .phone-img {
+  position: relative;
+  height: 30px;
+}
+.app__content .phone-img img {
+  width: 70%;
+}
+.app__content #carouselControls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58%;
+  border-radius: 8px;
+  overflow: hidden;
+  transform: translate(21px, 9px);
+  height: 356px;
+}
+.app__content #carouselControls .carousel-item img {
+  width: 100%;
+}

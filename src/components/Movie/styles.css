@@ -1,0 +1,14 @@
+.center .slick-next {
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  right: -5px !important;
+  z-index: 1;
+}
+.center .slick-prev {
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: -5px !important;
+  z-index: 1;
+}

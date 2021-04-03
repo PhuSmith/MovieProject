@@ -1,0 +1,12 @@
+.slick-prev {
+  top: 50%;
+  left: 5% !important;
+  z-index: 100;
+  position: absolute;
+}
+.slick-next {
+  top: 50%;
+  right: 5% !important;
+  z-index: 100;
+  position: absolute;
+}

@@ -1,0 +1,81 @@
+* Install jquery popper.js bootstrap
+* Install redux react-redux
+
+==== Buổi 1 ====
+   Chạy 1 lần duy nhất: npm install create-react-app -g
+   Câu lệnh cài project: create-react-app tenProject
+   Câu lệnh chạy project: npm start
+   npm install: Cài lại node_modules
+
+* Component:
+   - Stateful Component: class
+   - Stateless Component: function
+
+============== Buổi 2 ===============
+* Rendering Elements: {}
+* Handling Events: onClick
+* State
+* List keys
+
+============== Buoi 3 ==============
+* Props: Truyền dữ liệu từ Component Cha => Component Con
+   + class: mặc định có this.props
+   + function: phải có tham số props trên function
+   + children
+* Lifting State Up: Truyền dữ liệu từ Component Con => Component Cha
+* Shopping cart
+
+============== Buoi 4 ==============
+* Shopping cart
+
+============== Buoi 5 ==============
+* Usermanagement -props
+
+============== Buoi 6 ==============
+* Usermanagement - props (done)
+* Usermanagement - redux
+
+============== Buoi 7 ==============
+* Usermanagement - redux
+
+============== Buoi 8 ==============
+* Form validation
+* Lifecycle
+
+============== Buoi 9 ==============
+* Routing: 
+* Call api: List Movie
+
+============== Buoi 10 ==============
+* Redux thunk <=> redux saga
+* Loading
+* Get Params From URL: route, component sử dụng match
+* Detail Movie
+
+npm install redux-thunk --save   
+
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
+
+============== Buoi 11 ==============
+* HOC
+   - Tạo component theo dạng stateless Component
+   - stateless Component thật ra là 1 hàm => trả về 1 hàm mới (closure javascript), 
+      có tham số là Component dc truyền vào
+* Routing (HomeLayout & AdminLayout)
+* Login Auth
+
+============== Buoi 12 ==============
+* HOOKS
+* Material UI
+
+============== Buoi 13 ==============
+* Login Auth
+* Guard
+* Add user

@@ -1,0 +1,63 @@
+#footer {
+  background-color: #222;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #949494;
+  width: 100%;
+}
+footer .title {
+  color: white;
+}
+footer .fontSizeP a {
+  font-size: 12px !important;
+  font-size: 80%;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #949494;
+  display: block;
+  transition: all 0.2s;
+  line-height: 2.3;
+  text-decoration: none;
+}
+.conect {
+  margin-bottom: 15px;
+  padding: 0 !important;
+}
+
+.iconConect {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  margin-right: 15px;
+}
+.iconApp {
+  background: 0 0;
+  height: 30px;
+  width: auto;
+  margin: 5px;
+  vertical-align: middle;
+}
+.hrFooter {
+  border-top: 1px solid #4a4a4a;
+}
+.infoFooter {
+  color: #fff;
+  white-space: nowrap;
+  font-size: 70%;
+  transform: translateX(-93px);
+}
+.imgZion {
+  border-radius: 10px;
+  width: 80px;
+  height: auto;
+}
+.imgBoCo {
+  width: 130px;
+  float: right;
+}
+
+footer .slide {
+  width: 20%;
+  height: auto;
+}
