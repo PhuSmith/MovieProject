@@ -9,6 +9,8 @@ import HomeTemplate from "./container/HomeTemplate";
 import AdminTemplate from "./container/AdminTemplate";
 import AuthPage from "./container/AdminTemplate/AuthPage";
 import BookingTicket from "./container/HomeTemplate/BookingTicket";
+import Signup from "./container/HomeTemplate/Signup";
+
 function App() {
   const showLayoutHome = (route) => {
     if (route && route.length > 0) {
@@ -47,6 +49,8 @@ function App() {
         {showLayoutAdmin(routesAdmin)}
         <Route path="/bookingticket" component={BookingTicket} />
         {/* Auth */}
+        <Route path="/dangky" component={Signup} />
+
         <Route path="/auth" component={AuthPage} />
         {/* localhost:3000 - HomePage */}
         {/* <Route exact path="/" component={HomePage} /> */}
