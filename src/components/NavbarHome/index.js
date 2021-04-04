@@ -60,6 +60,28 @@ export default class Navbar extends Component {
               </NavLink>
             </li>
           </ul>
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <NavLink
+                exact
+                activeClassName="active"
+                className="nav-link"
+                to="/dangnhap"
+              >
+                Đăng nhập
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                activeClassName="active"
+                className="nav-link"
+                to="/dangky"
+              >
+                Đăng ký
+              </NavLink>
+            </li>
+          </ul>
         </div>
       </nav>
     );
