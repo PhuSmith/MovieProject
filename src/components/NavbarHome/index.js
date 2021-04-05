@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./styles.css";
+import { connect } from "react-redux";
+import signInReducer from "../../redux/reducer/signInReducer"
 
-export default class Navbar extends Component {
+
+class Navbar extends Component {
   render() {
+    console.log(this.props.credential);
     return (
       <nav className="navbar navbar-expand-md" id="header">
         {/* Brand */}
@@ -60,8 +64,46 @@ export default class Navbar extends Component {
               </NavLink>
             </li>
           </ul>
+
+          <ul className="navbar-nav">
+
+            {this.props.credential ? (
+
+              <li className="nav-item">
+                <span className="nav-link">Hi,{this.props.credential.hoTen}</span>
+              </li>) : (<>
+                <li className="nav-item">
+                  <NavLink
+                    activeStyle={{ color: "red" }}
+                    to="/signup"
+                    className="nav-link"
+                  >
+                    Đăng ký
+              </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    activeStyle={{ color: "red" }}
+                    to="/dangnhap"
+                    className="nav-link"
+                  >
+                    Đăng nhập
+              </NavLink>
+                </li>
+              </>
+            )
+            }
+          </ul>
         </div>
       </nav>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    credential: state.signInReducer.credential
+  };
+};
+
+export default connect(mapStateToProps, null)(Navbar);

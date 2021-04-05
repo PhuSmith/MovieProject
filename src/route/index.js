@@ -27,6 +27,7 @@ const routeHome = [
     component: HocPage,
     exact: false,
   },
+  
 ];
 
 const routesAdmin = [
