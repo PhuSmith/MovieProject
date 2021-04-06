@@ -6,6 +6,7 @@ import addUserReducer from "../../container/AdminTemplate/AddUserPage/modules/re
 import listCinemaReducer from "./listCinemaReducer";
 import detailCinemaReducer from "./detailCinemaReducer";
 import DatVeReducer from "./datveReducer";
+import signInReducer from "./signInReducer";
 const rootReducer = combineReducers({
   //key: value
   listMoviceReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   authReducer,
   addUserReducer,
   DatVeReducer,
+  signInReducer
 });
 
 export default rootReducer;
