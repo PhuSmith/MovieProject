@@ -64,29 +64,6 @@ class Navbar extends Component {
               </NavLink>
             </li>
           </ul>
-<<<<<<< HEAD
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <NavLink
-                exact
-                activeClassName="active"
-                className="nav-link"
-                to="/dangnhap"
-              >
-                Đăng nhập
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                activeClassName="active"
-                className="nav-link"
-                to="/dangky"
-              >
-                Đăng ký
-              </NavLink>
-            </li>
-=======
 
           <ul className="navbar-nav">
 
@@ -116,7 +93,6 @@ class Navbar extends Component {
               </>
             )
             }
->>>>>>> tuan
           </ul>
         </div>
       </nav>
