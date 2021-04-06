@@ -75,7 +75,7 @@ class Navbar extends Component {
                 <li className="nav-item">
                   <NavLink
                     activeStyle={{ color: "red" }}
-                    to="/signup"
+                    to="/dangky"
                     className="nav-link"
                   >
                     Đăng ký

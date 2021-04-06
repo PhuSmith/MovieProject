@@ -28,11 +28,11 @@ const routeHome = [
     component: HocPage,
     exact: false,
   },
-  // {
-  //   path: "/dangky",
-  //   component: Signup,
-  //   exact: false,
-  // },
+  {
+    path: "/dangky",
+    component: Signup,
+    exact: false,
+  },
 ];
 
 const routesAdmin = [
