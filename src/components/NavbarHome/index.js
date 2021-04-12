@@ -1,29 +1,31 @@
-import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
+
+import { NavLink, Link, useHistory } from "react-router-dom";
 import "./styles.css";
 import { connect } from "react-redux";
-import signInReducer from "../../redux/reducer/signInReducer"
-
-
+import { Nav, NavDropdown, Dropdown } from "react-bootstrap";
+import HomePage from "../../container/HomeTemplate/HomePage";
+import HomeTemplate from "../../container/HomeTemplate"
+import { Component } from "react";
+import { actSignIn } from "../../redux/actions/act"
 class Navbar extends Component {
+  logOut = () => {
+    const credentials = localStorage.getItem('credential');
+    localStorage.clear();
+    if (credentials) {
+      this.props.dispatch(
+        actSignIn(null)
+      )
+    }
+  }
+
   render() {
-    console.log(this.props.credential);
     return (
       <nav className="navbar navbar-expand-md" id="header">
-        {/* Brand */}
+
         <Link className="navbar-brand" to="" className="logo">
           <img src="./images/web-logo.png" alt="" />
         </Link>
-        {/* Toggler/collapsibe Button */}
-        {/* <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavbar"
-        >
-          <span className="navbar-toggler-icon" />
-        </button> */}
-        {/* Navbar links */}
+
         <div
           className="collapse navbar-collapse"
           id="collapsibleNavbar"
@@ -38,7 +40,7 @@ class Navbar extends Component {
                 to="/"
               >
                 Lịch Chiếu
-              </NavLink>
+                </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
@@ -47,7 +49,7 @@ class Navbar extends Component {
                 to="/about"
               >
                 Cụm rạp
-              </NavLink>
+                </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
@@ -56,22 +58,34 @@ class Navbar extends Component {
                 to="/list-movie"
               >
                 Tin tức
-              </NavLink>
+                </NavLink>
             </li>
             <li className="nav-item">
               <NavLink activeClassName="active" className="nav-link" to="/hoc">
                 Ứng dụng
-              </NavLink>
+                </NavLink>
             </li>
           </ul>
 
           <ul className="navbar-nav">
-
             {this.props.credential ? (
+              <>
+                <li className="nav-item">
+                  <Dropdown>
+                    <Dropdown.Toggle style={{padding: "2px"}} variant="success" id="dropdown-basic">
+                      {this.props.credential.hoTen}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item onClick={this.logOut} >Đăng xuất</Dropdown.Item>
+                      <Dropdown.Item >Cập nhật thông tin</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </li>
+              </>
 
-              <li className="nav-item">
-                <span className="nav-link">Hi,{this.props.credential.hoTen}</span>
-              </li>) : (<>
+
+            ) : (
+              <>
                 <li className="nav-item">
                   <NavLink
                     activeStyle={{ color: "red" }}
@@ -79,7 +93,7 @@ class Navbar extends Component {
                     className="nav-link"
                   >
                     Đăng ký
-              </NavLink>
+                    </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink
@@ -88,11 +102,10 @@ class Navbar extends Component {
                     className="nav-link"
                   >
                     Đăng nhập
-              </NavLink>
+                    </NavLink>
                 </li>
               </>
-            )
-            }
+            )}
           </ul>
         </div>
       </nav>
@@ -100,9 +113,10 @@ class Navbar extends Component {
   }
 }
 
+
 const mapStateToProps = (state) => {
   return {
-    credential: state.signInReducer.credential
+    credential: state.signInReducer.credential,
   };
 };
 

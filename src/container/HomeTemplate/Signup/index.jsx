@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import Axios from "axios";
+
 import { connect } from "react-redux";
 import { fetchAddUserApi } from "../../../redux/actions/actSignup";
 
