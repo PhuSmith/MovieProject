@@ -1,11 +1,23 @@
-import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useHistory } from "react-router-dom";
 import "./styles.css";
 import logo from "./../../assets/images/logo.png";
 import { connect } from "react-redux";
 import Countries from "../ComboCountries";
 
+import { Nav, NavDropdown, Dropdown } from "react-bootstrap";
+import HomePage from "../../container/HomeTemplate/HomePage";
+import HomeTemplate from "../../container/HomeTemplate";
+import { Component } from "react";
+import { actSignIn } from "../../redux/actions/act";
 class Navbar extends Component {
+  logOut = () => {
+    const credentials = localStorage.getItem("credential");
+    localStorage.clear();
+    if (credentials) {
+      this.props.dispatch(actSignIn(null));
+    }
+  };
+
   render() {
     return (
       <nav className="navbar navbar-expand-md" id="header">
