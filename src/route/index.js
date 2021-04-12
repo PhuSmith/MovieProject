@@ -4,6 +4,7 @@ import HocPage from "./../container/HomeTemplate/HocPage";
 import Dashboard from "./../container/AdminTemplate/Dashboard";
 import AddUser from "./../container/AdminTemplate/AddUserPage";
 import DetailMovie from "./../container/HomeTemplate/DetailPage";
+import Signup from "../container/HomeTemplate/Signup";
 
 const routeHome = [
   {
@@ -27,7 +28,11 @@ const routeHome = [
     component: HocPage,
     exact: false,
   },
-  
+  {
+    path: "/dangky",
+    component: Signup,
+    exact: false,
+  },
 ];
 
 const routesAdmin = [

@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Router, Switch } from "react-router-dom";
 // import HomePage from "./container/HomeTemplate/HomePage";
 // import AboutPage from "./container/HomeTemplate/AboutPage";
 // import ListMoviePage from "./container/HomeTemplate/ListMoviePage";
@@ -9,19 +9,18 @@ import HomeTemplate from "./container/HomeTemplate";
 import AdminTemplate from "./container/AdminTemplate";
 import AuthPage from "./container/AdminTemplate/AuthPage";
 import BookingTicket from "./container/HomeTemplate/BookingTicket";
-import {useEffect} from "react"
+
 import {connect} from"react-redux"
 
 
 import SignIn from"./container/HomeTemplate/SingIn";
 import React, { Component } from "react";
 import {actSignIn}  from"./redux/actions/act"
+import HomePage from "./container/HomeTemplate/HomePage";
 
  
 class App extends Component {
-   
 
-  
   render(){
     const showLayoutHome = (route) => {
       if (route && route.length > 0) {
@@ -58,7 +57,7 @@ class App extends Component {
         <Switch>
           {showLayoutAdmin(routesAdmin)}
           {showLayoutHome(routeHome)}
-         
+          {/* <Route path="/home" component={HomePage}/> */}
           <Route path="/bookingticket" component={BookingTicket} />
           {/* Auth */}
           <Route path="/auth" component={AuthPage} />
@@ -85,9 +84,7 @@ class App extends Component {
       this.props.dispatch(
         actSignIn(JSON.parse(credentials))
       )
-      console.log( this.props.dispatch(
-        actSignIn(JSON.parse(credentials))
-      ));
+      
       
     }
   }
