@@ -1,146 +1,155 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { actDetailCinemaApi } from "../../redux/actions/actDetailCinemaApi";
-import DanhSachRap from "../DanhSachRap";
-import { Link } from "react-router-dom";
+import { actDetailCinemaApi } from "../../redux/actions/QuanLyRapAction";
+
 class Cinema extends Component {
   componentDidMount() {
-    //Chạy 1 lần duy nhất
-    //lấy id từ url
     const { cinema } = this.props;
     this.props.fetchDetailCinema(cinema.maHeThongRap);
   }
 
   render() {
-    const { cinema } = this.props;
     return (
-      <div className="row">
-        <div className="card">
-          <div className="card-body">
-            <img
-              src={cinema.logo}
-              wigh={50}
-              height={50}
-              alt=""
-              onClick={() => {
-                this.renderTable(cinema.maHeThongRap);
-              }}
-            />
+      <div>
+        {/* <div className="tab-content row" id="v-pills-tabContent">
+          {data?.map((heThongRap, index) => {
+            // console.log(heThongRap);
+            return (
+              <div key={index} className="col-3">
+                <p>{heThongRap.logo}</p>
+
+                <div className="col-9">
+                  {heThongRap.danhSachRap?.map((cumRap, index) => {
+                    console.log(cumRap);
+                    return (
+                      <div key={index}>
+                        <p style={{ fontWeight: "bold", fontSize: "25px" }}>
+                          {cumRap.tenRap}
+                        </p>
+                        <div className="row">
+                          {cumRap.lichChieuPhim
+                            ?.slice(0, 12)
+                            .map((lichChieu, index) => {
+                              return (
+                                <Link
+                                  to={"/chitietPhongVe" + lichChieu.maLichChieu}
+                                  key={index}
+                                >
+                                  {moment(lichChieu.ngayChieuGioChieu).format(
+                                    "hh:mm A"
+                                  )}
+                                </Link>
+                              );
+                            })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div> */}
+        <div className="row">
+          <div className="col-3">
+            <div
+              className="nav flex-column nav-pills"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              <a
+                className="nav-link active"
+                id="v-pills-home-tab"
+                data-toggle="pill"
+                href="#v-pills-home"
+                role="tab"
+                aria-controls="v-pills-home"
+                aria-selected="true"
+              >
+                Home
+              </a>
+              <a
+                className="nav-link"
+                id="v-pills-profile-tab"
+                data-toggle="pill"
+                href="#v-pills-profile"
+                role="tab"
+                aria-controls="v-pills-profile"
+                aria-selected="false"
+              >
+                Profile
+              </a>
+              <a
+                className="nav-link"
+                id="v-pills-messages-tab"
+                data-toggle="pill"
+                href="#v-pills-messages"
+                role="tab"
+                aria-controls="v-pills-messages"
+                aria-selected="false"
+              >
+                Messages
+              </a>
+              <a
+                className="nav-link"
+                id="v-pills-settings-tab"
+                data-toggle="pill"
+                href="#v-pills-settings"
+                role="tab"
+                aria-controls="v-pills-settings"
+                aria-selected="false"
+              >
+                Settings
+              </a>
+            </div>
+          </div>
+          <div className="col-9">
+            <div className="tab-content" id="v-pills-tabContent">
+              <div
+                className="tab-pane fade show active"
+                id="v-pills-home"
+                role="tabpanel"
+                aria-labelledby="v-pills-home-tab"
+              >
+                dsfdsfsdfsdfds
+              </div>
+              <div
+                className="tab-pane fade"
+                id="v-pills-profile"
+                role="tabpanel"
+                aria-labelledby="v-pills-profile-tab"
+              >
+                sdfdsfdsfds
+              </div>
+              <div
+                className="tab-pane fade"
+                id="v-pills-messages"
+                role="tabpanel"
+                aria-labelledby="v-pills-messages-tab"
+              >
+                fsdfsdfdsfdsf
+              </div>
+              <div
+                className="tab-pane fade"
+                id="v-pills-settings"
+                role="tabpanel"
+                aria-labelledby="v-pills-settings-tab"
+              >
+                fdsfdsfsdfsf
+              </div>
+            </div>
           </div>
         </div>
       </div>
     );
   }
-  // renderHTML = (id) => {
-  //   return id.map((item, index) => {
-  //     return <DanhSachRap key={index} cumRap={item} />;
-  //   });
-  // };
-  // renderHTML = (id) => {
-  //   const { data } = this.props;
-
-  //   if (id === "CGV")
-  //     return (
-  //       data &&
-  //       data.map((item, index) => {
-  //         return <Link key={index}>{item.tenCumRap}</Link>;
-  //       })
-  //     );
-  // };
-
-  renderTable = (id) => {
-    const { data } = this.props;
-
-    switch (id) {
-      case "BHDStar": {
-        return data.map((item) => {
-          return (
-            // <tr key={index}>
-            //   <td>{item.tenCumRap}</td>
-            //   <td>{item.diaChi}</td>
-            //   <td>
-            //     <div className="btn btn-success">Chọn ghế</div>
-            //   </td>
-            // </tr>
-            this.renderHTML(item)
-          );
-        });
-      }
-      case "CGV": {
-        return data.map((item, index) => {
-          return (
-            <tr key={index}>
-              <td>{item.tenCumRap}</td>
-              <td>{item.diaChi}</td>
-              <td>
-                <div className="btn btn-success">Chọn ghế</div>
-              </td>
-            </tr>
-          );
-        });
-      }
-      case "CineStar": {
-        return data.map((item, index) => {
-          return (
-            <tr key={index}>
-              <td>{item.tenCumRap}</td>
-              <td>{item.diaChi}</td>
-              <td>
-                <div className="btn btn-success">Chọn ghế</div>
-              </td>
-            </tr>
-          );
-        });
-      }
-      case "Galaxy": {
-        return data.map((item, index) => {
-          return (
-            <tr key={index}>
-              <td>{item.tenCumRap}</td>
-              <td>{item.diaChi}</td>
-              <td>
-                <div className="btn btn-success">Chọn ghế</div>
-              </td>
-            </tr>
-          );
-        });
-      }
-      case "LotteCinima": {
-        return data.map((item, index) => {
-          return (
-            <tr key={index}>
-              <td>{item.tenCumRap}</td>
-              <td>{item.diaChi}</td>
-              <td>
-                <div className="btn btn-success">Chọn ghế</div>
-              </td>
-            </tr>
-          );
-        });
-      }
-      case "MegaGS": {
-        return data.map((item, index) => {
-          return (
-            <tr key={index}>
-              <td>{item.tenCumRap}</td>
-              <td>{item.diaChi}</td>
-              <td>
-                <div className="btn btn-success">Chọn ghế</div>
-              </td>
-            </tr>
-          );
-        });
-      }
-
-      default:
-    }
-  };
 }
 
 const mapStateToProps = (state) => {
   return {
-    loading: state.detailCinemaReducer.loading,
-    data: state.detailCinemaReducer.data,
+    loading: state.QuanLyRapReducer.loading,
+    data: state.QuanLyRapReducer.data,
   };
 };
 

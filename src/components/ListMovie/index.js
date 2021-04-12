@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Movie from "../Movie";
 // import Loader from "../Loader";
-import { actListMovieApi } from "../../redux/actions/actListMovieApi";
+import { actListMovieApi } from "../../redux/actions/QuanLyPhimAction";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Slider from "react-slick";
@@ -9,35 +9,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 class ListMovie extends Component {
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.props.fetchListMovie();
   }
 
-  // renderHTML = () => {
-  //   return (
-  //     data &&
-  //     data.map((item) => {
-  //       console.log(item);
-  //       return (
-  //         <Slider>
-  //           <div className="col-3">
-  //             <div className="card">
-  //               <img className="card-img-top" src={item.hinhAnh} alt="" />
-  //               <div className="card-body">
-  //                 <h4 className="card-title">{item.tenPhim}</h4>
-  //                 <p className="card-text">{item.moTa}</p>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </Slider>
-  //       );
-  //     })
-  //   );
-  // };
-
   render() {
     const { data } = this.props;
-    console.log(data);
     const settings = {
       className: "center",
       centerMode: false,
@@ -61,9 +38,8 @@ class ListMovie extends Component {
         </div>
         <Slider {...settings}>
           {data &&
-            data.map((item) => {
-              console.log(item);
-              return <Movie movie={item} />;
+            data.map((item, index) => {
+              return <Movie key={index} movie={item} />;
             })}
         </Slider>
       </div>
@@ -73,8 +49,8 @@ class ListMovie extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    loading: state.listMoviceReducer.loading,
-    data: state.listMoviceReducer.data,
+    loading: state.QuanLyPhimReducer.loading,
+    data: state.QuanLyPhimReducer.dsPhim,
   };
 };
 

@@ -1,31 +1,52 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { actListCinemaApi } from "../../redux/actions/actListCinemaApi";
-import Loader from "../Loader";
+import { actListCinemaApi } from "../../redux/actions/QuanLyRapAction";
 import Cinema from "../Cinema";
-
 class ListCinema extends Component {
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.props.fetchListCinema();
   }
 
-  renderHTML = () => {
-    const { loading, data } = this.props;
-
-    if (loading) return <Loader />;
-    return (
-      data &&
-      data.map((item, index) => {
-        return <Cinema key={index} cinema={item} />;
-      })
-    );
-  };
-
   render() {
+    const { data } = this.props;
+    // console.log(data);
     return (
-      <div className="container">
-        <div className="row">
-          <div>{this.renderHTML()}</div>
+      <div className="row mt-5">
+        <div className="col-12">
+          <div className="row">
+            <div
+              className="nav flex-column nav-pills col-3"
+              id="v-pills-tab"
+              role="tablist"
+              // aria-orientation
+            >
+              {data?.map((heThongRap, index) => {
+                let active = index === 0 ? "active" : "";
+                return (
+                  <div>
+                    <a
+                      key={index}
+                      cinema={heThongRap}
+                      className={"tab-pane fade show" + active}
+                      id="v-pills-tab"
+                      data-toggle=""
+                    >
+                      <img
+                        src={heThongRap.logo}
+                        alt={heThongRap.logo}
+                        style={{ width: 50, height: 50 }}
+                      />
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="col-9">
+              {data?.map((rap, index) => {
+                return <Cinema cinema={rap} key={index} />;
+              })}
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -33,8 +54,8 @@ class ListCinema extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    loading: state.listCinemaReducer.loading,
-    data: state.listCinemaReducer.data,
+    loading: state.QuanLyRapReducer.loading,
+    data: state.QuanLyRapReducer.data,
   };
 };
 

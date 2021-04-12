@@ -26,34 +26,57 @@ export default class Footer extends Component {
               <p className="title">Đối tác</p>
               <div className="row col-sm-12 col-xs-12 ">
                 <div className="conect">
-                  <a href="https://www.cgv.vn/" target="_blank" title="CGV">
+                  <a
+                    href="https://www.cgv.vn/"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="CGV"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/cgv.png"
                       alt=""
                     />
                   </a>
-                  <a target="_blank" href="http://bhdstar.vn" title="BHD">
+                  <a
+                    target="_blank"
+                    href="http://bhdstar.vn"
+                    rel="noreferrer"
+                    title="BHD"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/megags.png"
+                      alt=""
                     />
                   </a>
-                  <a href="https://www.cgv.vn/" target="_blank">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/STARLIGHT.png"
                       alt=""
                     />
                   </a>
-                  <a href="https://www.galaxycine.vn/" target="_blank">
+                  <a
+                    href="https://www.galaxycine.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/AGRIBANK.png"
                       alt=""
                     />
                   </a>
-                  <a href="https://www.cgv.vn/" target="_blank">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/STARLIGHT.png"
@@ -62,34 +85,57 @@ export default class Footer extends Component {
                   </a>
                 </div>
                 <div className=" conect">
-                  <a href="https://www.cgv.vn/" target="_blank" title="CGV">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                    title="CGV"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/cgv.png"
                       alt=""
                     />
                   </a>
-                  <a target="_blank" href="http://bhdstar.vn" title="BHD">
+                  <a
+                    target="_blank"
+                    href="http://bhdstar.vn"
+                    rel="noreferrer"
+                    title="BHD"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/megags.png"
+                      alt=""
                     />
                   </a>
-                  <a href="https://www.cgv.vn/" target="_blank">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/STARLIGHT.png"
                       alt=""
                     />
                   </a>
-                  <a href="https://www.galaxycine.vn/" target="_blank">
+                  <a
+                    href="https://www.galaxycine.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/AGRIBANK.png"
                       alt=""
                     />
                   </a>
-                  <a href="https://www.cgv.vn/" target="_blank">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/STARLIGHT.png"
@@ -98,34 +144,57 @@ export default class Footer extends Component {
                   </a>
                 </div>
                 <div className=" conect">
-                  <a href="https://www.cgv.vn/" target="_blank" title="CGV">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                    title="CGV"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/cgv.png"
                       alt=""
                     />
                   </a>
-                  <a target="_blank" href="http://bhdstar.vn" title="BHD">
+                  <a
+                    target="_blank"
+                    href="http://bhdstar.vn"
+                    rel="noreferrer"
+                    title="BHD"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/megags.png"
+                      alt=""
                     />
                   </a>
-                  <a href="https://www.cgv.vn/" target="_blank">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/STARLIGHT.png"
                       alt=""
                     />
                   </a>
-                  <a href="https://www.galaxycine.vn/" target="_blank">
+                  <a
+                    href="https://www.galaxycine.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/AGRIBANK.png"
                       alt=""
                     />
                   </a>
-                  <a href="https://www.cgv.vn/" target="_blank">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/STARLIGHT.png"
@@ -134,34 +203,57 @@ export default class Footer extends Component {
                   </a>
                 </div>
                 <div className=" conect">
-                  <a href="https://www.cgv.vn/" target="_blank" title="CGV">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                    title="CGV"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/cgv.png"
                       alt=""
                     />
                   </a>
-                  <a target="_blank" href="http://bhdstar.vn" title="BHD">
+                  <a
+                    target="_blank"
+                    href="http://bhdstar.vn"
+                    rel="noreferrer"
+                    title="BHD"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/megags.png"
+                      alt=""
                     />
                   </a>
-                  <a href="https://www.cgv.vn/" target="_blank">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/STARLIGHT.png"
                       alt=""
                     />
                   </a>
-                  <a href="https://www.galaxycine.vn/" target="_blank">
+                  <a
+                    href="https://www.galaxycine.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/AGRIBANK.png"
                       alt=""
                     />
                   </a>
-                  <a href="https://www.cgv.vn/" target="_blank">
+                  <a
+                    href="https://www.cgv.vn/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <img
                       className="iconConect"
                       src="https://tix.vn/app/assets/img/icons/STARLIGHT.png"

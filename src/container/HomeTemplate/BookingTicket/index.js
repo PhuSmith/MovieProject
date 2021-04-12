@@ -3,7 +3,7 @@ import ThongTinDatGhe from "../../../components/ThongTinDatGhe";
 import "./styles.css";
 import danhSachGheData from "../../../data/danhSachGhe.json";
 import HangGhe from "../../../components/HangGhe";
-
+import screen from "../../../assets/images/screen.png";
 export default class BookingTicket extends Component {
   renderHangGhe = () => {
     return danhSachGheData.map((hangGhe, index) => {
@@ -38,7 +38,7 @@ export default class BookingTicket extends Component {
             <div className="row">
               <div className="col-8 text-center">
                 <div className="text-dark">ĐẶT VÉ XEM PHIM CYBERLEARN.VN</div>
-                <img className="mt-5" src="./images/screen.png" />
+                <img className="mt-5" src={screen} />
                 {this.renderHangGhe()}
               </div>
               <div className="col-4">

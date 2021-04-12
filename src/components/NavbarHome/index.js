@@ -1,29 +1,17 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./styles.css";
+import logo from "./../../assets/images/logo.png";
 import { connect } from "react-redux";
-import signInReducer from "../../redux/reducer/signInReducer"
-
+import Countries from "../ComboCountries";
 
 class Navbar extends Component {
   render() {
-    console.log(this.props.credential);
     return (
       <nav className="navbar navbar-expand-md" id="header">
-        {/* Brand */}
-        <Link className="navbar-brand" to="" className="logo">
-          <img src="./images/web-logo.png" alt="" />
+        <Link className="navbar-brand" to="/">
+          <img src={logo} alt="logo" style={{ height: "50px" }} />
         </Link>
-        {/* Toggler/collapsibe Button */}
-        {/* <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavbar"
-        >
-          <span className="navbar-toggler-icon" />
-        </button> */}
-        {/* Navbar links */}
         <div
           className="collapse navbar-collapse"
           id="collapsibleNavbar"
@@ -63,36 +51,11 @@ class Navbar extends Component {
                 Ứng dụng
               </NavLink>
             </li>
-          </ul>
-
-          <ul className="navbar-nav">
-
-            {this.props.credential ? (
-
-              <li className="nav-item">
-                <span className="nav-link">Hi,{this.props.credential.hoTen}</span>
-              </li>) : (<>
-                <li className="nav-item">
-                  <NavLink
-                    activeStyle={{ color: "red" }}
-                    to="/dangky"
-                    className="nav-link"
-                  >
-                    Đăng ký
-              </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    activeStyle={{ color: "red" }}
-                    to="/dangnhap"
-                    className="nav-link"
-                  >
-                    Đăng nhập
-              </NavLink>
-                </li>
-              </>
-            )
-            }
+            <li>
+              <Link activeClassName="active" className="nav-link" to="/">
+                <Countries />
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>
@@ -102,7 +65,7 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    credential: state.signInReducer.credential
+    credential: state.signInReducer.credential,
   };
 };
 

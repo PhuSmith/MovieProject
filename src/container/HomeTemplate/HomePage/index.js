@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core";
 import { styles } from "./styles";
 import Carousel from "../../../components/Carousel";
+import FilterBox from "../../../components/FilterBox";
 import ListMovie from "../../../components/ListMovie";
 import ListCinema from "../../../components/ListCinema";
 import AppMobile from "../../../components/AppMobile";
@@ -11,6 +12,7 @@ class HomePage extends Component {
     return (
       <div>
         <Carousel />
+        <FilterBox />
         <ListMovie />
         <ListCinema />
         <AppMobile />

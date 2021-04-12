@@ -1,0 +1,51 @@
+@import "../../assets/sass/helpers/variables.scss";
+@import "../../assets/sass/helpers/mixins.scss";
+
+.Search {
+  background: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-top: -80px;
+  position: relative;
+  .Content {
+    .Header {
+      margin-bottom: $mg-2;
+      @include responsiveTo("col-lg") {
+        margin-bottom: $mg-4;
+      }
+      .Category {
+        @include textStyle($fs-1 - 2, $fw-2, $color-blue, $ls-2);
+        @include responsiveTo("col-md") {
+          @include textStyle($fs-1, $fw-2, $color-blue, $ls-2);
+        }
+      }
+      .Title {
+        @include textStyle($fs-1 + 2, $fw-3, $color-white, $ls-2);
+        @include responsiveTo("col-md") {
+          @include textStyle($fs-3, $fw-3, $color-white, $ls-2);
+        }
+      }
+    }
+    .Bottom {
+      .SearchForm {
+        .Type {
+          padding: 0 $pd-1;
+          color: $color-blue;
+        }
+        .Select {
+          width: 100%;
+          padding: 20px;
+          border: None;
+          border-right: 1px solid #fff;
+          border-right-color: rgba(238, 238, 238, 0.88);
+          background-color: rgba(255, 255, 255, 0.61);
+          @include textStyle($fs-1 - 2, $fw-2, $color-purple, $ls-1);
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}

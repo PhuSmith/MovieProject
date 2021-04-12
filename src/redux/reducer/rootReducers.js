@@ -1,22 +1,20 @@
 import { combineReducers } from "redux";
-import listMoviceReducer from "./listMoviceReducer";
-import detailMovieReducer from "../../container/HomeTemplate/DetailPage/modules/reducer";
+import QuanLyPhimReducer from "./QuanLyPhimReducer";
 import authReducer from "../../container/AdminTemplate/AuthPage/modules/reducer";
 import addUserReducer from "../../container/AdminTemplate/AddUserPage/modules/reducer";
-import listCinemaReducer from "./listCinemaReducer";
-import detailCinemaReducer from "./detailCinemaReducer";
+import QuanLyRapReducer from "./QuanLyRapReducer";
 import DatVeReducer from "./datveReducer";
 import signInReducer from "./signInReducer";
+import movieListReducer from "./movieListReducer";
 const rootReducer = combineReducers({
   //key: value
-  listMoviceReducer,
-  listCinemaReducer,
-  detailMovieReducer,
-  detailCinemaReducer,
+  QuanLyPhimReducer,
+  QuanLyRapReducer,
   authReducer,
   addUserReducer,
   DatVeReducer,
-  signInReducer
+  signInReducer,
+  movieListReducer,
 });
 
 export default rootReducer;

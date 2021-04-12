@@ -1,0 +1,7 @@
+export const LIST_CINEMA_REQUEST = "QuanLyRapReducer/LIST_CINEMA_REQUEST";
+export const LIST_CINEMA_SUCCESS = "QuanLyRapReducer/LIST_CINEMA_SUCCESS";
+export const LIST_CINEMA_FAILED = "QuanLyRapReducer/LIST_CINEMA_FAILED";
+
+export const DETAIL_CINEMA_REQUEST = "QuanLyRapReducer/DETAIL_CINEMA_REQUEST";
+export const DETAIL_CINEMA_SUCCESS = "QuanLyRapReducer/DETAIL_CINEMA_SUCCESS";
+export const DETAIL_CINEMA_FAILED = "QuanLyRapReducer/DETAIL_CINEMA_FAILED";

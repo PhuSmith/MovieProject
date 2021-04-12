@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./styles.css";
+import mobile from "../../assets/images/slide1.jpg";
+import mobile1 from "../../assets/images/slide10.jpg";
 export default class AppMobile extends Component {
   render() {
     return (
@@ -26,6 +28,7 @@ export default class AppMobile extends Component {
                     <a
                       href="https://apps.apple.com/us/app/123phim-mua-ve-lien-tay-chon/id615186197"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <button className="buttonLeft">
                         App miễn phí - Tải về ngay!
@@ -35,6 +38,7 @@ export default class AppMobile extends Component {
                       TIX có hai phiên bản
                       <a
                         target="_blank"
+                        rel="noreferrer"
                         href="https://itunes.apple.com/us/app/123phim-mua-ve-lien-tay-chon/id615186197?mt=8"
                       >
                         iOS
@@ -42,6 +46,7 @@ export default class AppMobile extends Component {
                       &amp;&nbsp;
                       <a
                         target="_blank"
+                        rel="noreferrer"
                         href="https://play.google.com/store/apps/details?id=vn.com.vng.phim123"
                       >
                         Android
@@ -52,7 +57,7 @@ export default class AppMobile extends Component {
                     <div className="imgMoblie">
                       <div className="phone-img">
                         <img
-                          className="img-responsive "
+                          // className="img-responsive "
                           src="./images/mobile.png"
                           alt=""
                         />
@@ -65,21 +70,21 @@ export default class AppMobile extends Component {
                         <div className="carousel-inner">
                           <div className="carousel-item">
                             <img
-                              src="./img/slide1.jpg"
+                              src={mobile}
                               className="d-block w-100"
                               alt="..."
                             />
                           </div>
                           <div className="carousel-item">
                             <img
-                              src="./img/slide2.jpg"
+                              src={mobile1}
                               className="d-block w-100"
                               alt="..."
                             />
                           </div>
                           <div className="carousel-item active">
                             <img
-                              src="./img/slide3.jpg"
+                              src={mobile}
                               className="d-block w-"
                               alt="..."
                             />
