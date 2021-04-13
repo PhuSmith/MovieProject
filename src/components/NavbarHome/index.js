@@ -20,53 +20,54 @@ class Navbar extends Component {
   showInfo = () => {
     const { credential } = this.props;
     console.log(credential);
-    return (
-      credential === null ? (
-        <>
-          <li className="nav-item">
-            <NavLink
-              activeStyle={{ color: "red" }}
-              to="/dangky"
-              className="nav-link"
+    return credential === null ? (
+      <>
+        <li className="nav-item">
+          <NavLink
+            activeStyle={{ color: "red" }}
+            to="/dangky"
+            className="nav-link"
+          >
+            Đăng ký
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink
+            activeStyle={{ color: "red" }}
+            to="/dangnhap"
+            className="nav-link"
+          >
+            Đăng nhập
+          </NavLink>
+        </li>
+      </>
+    ) : (
+      <>
+        <li className="nav-item">
+          <Dropdown>
+            <Dropdown.Toggle
+              style={{ padding: "2px" }}
+              variant="success"
+              id="dropdown-basic"
             >
-              Đăng ký
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              activeStyle={{ color: "red" }}
-              to="/dangnhap"
-              className="nav-link"
-            >
-              Đăng nhập
-            </NavLink>
-          </li>
-        </>
-      ) : (
-        <>
-          <li className="nav-item">
-            <Dropdown>
-              <Dropdown.Toggle
-                style={{ padding: "2px" }}
-                variant="success"
-                id="dropdown-basic"
-              >
-                {this.props.credential?.hoTen}
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item onClick={this.logOut}>Đăng xuất</Dropdown.Item>
-                <Dropdown.Item>Cập nhật thông tin</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </li>
-        </>
-      ))
-
+              {this.props.credential?.hoTen}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={this.logOut}>Đăng xuất</Dropdown.Item>
+              <Dropdown.Item>Cập nhật thông tin</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </li>
+      </>
+    );
   };
 
   render() {
     return (
-      <nav className="navbar navbar-expand-md justify-content-between" id="header">
+      <nav
+        className="navbar navbar-expand-md justify-content-between"
+        id="header"
+      >
         <Link className="navbar-brand" to="/" className="logo">
           <img src="./images/web-logo.png" alt="" />
         </Link>
@@ -91,7 +92,7 @@ class Navbar extends Component {
                 activeClassName="active"
                 className="nav-link"
                 to="/about"
-              >git gi
+              >
                 Cụm rạp
               </NavLink>
             </li>
@@ -114,7 +115,8 @@ class Navbar extends Component {
                 <Countries />
               </Link>
             </li>
-          </ul>
+            {this.showInfo()}
+         </ul>
         </div>
       </nav>
     );
