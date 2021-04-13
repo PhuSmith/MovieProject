@@ -109,8 +109,6 @@ class Navbar extends Component {
                 Ứng dụng
               </NavLink>
             </li>
-
-
             {this.showInfo()}
           </ul>
         </div>
