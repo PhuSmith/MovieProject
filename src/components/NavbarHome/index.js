@@ -17,12 +17,60 @@ class Navbar extends Component {
       this.props.dispatch(actSignIn(null));
     }
   };
+  showInfo = () => {
+
+
+    const { credential } = this.props;
+    console.log(credential);
+    return (
+      credential === null ? (
+        <>
+          <li className="nav-item">
+            <NavLink
+              activeStyle={{ color: "red" }}
+              to="/dangky"
+              className="nav-link"
+            >
+              Đăng ký
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              activeStyle={{ color: "red" }}
+              to="/dangnhap"
+              className="nav-link"
+            >
+              Đăng nhập
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <>
+          <li className="nav-item">
+            <Dropdown>
+              <Dropdown.Toggle
+                style={{ padding: "2px" }}
+                variant="success"
+                id="dropdown-basic"
+              >
+                {this.props.credential?.hoTen}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={this.logOut}>Đăng xuất</Dropdown.Item>
+                <Dropdown.Item>Cập nhật thông tin</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </li>
+        </>
+      ))
+
+  };
 
   render() {
     return (
-      <nav className="navbar navbar-expand-md" id="header">
-        <Link className="navbar-brand" to="/">
-          <img src={logo} alt="logo" style={{ height: "50px" }} />
+      <nav className="navbar navbar-expand-md justify-content-between" id="header">
+        <Link className="navbar-brand" to="/" className="logo">
+          <img src="./images/web-logo.png" alt="" />
         </Link>
         <div
           className="collapse navbar-collapse"
