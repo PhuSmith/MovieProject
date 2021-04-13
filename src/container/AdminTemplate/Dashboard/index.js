@@ -1,56 +1,129 @@
 import React, { Component } from "react";
-import "./styles.css"
+import "./styles.css";
+import clsx from "clsx";
+import { makeStyles } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Drawer from "@material-ui/core/Drawer";
+import Box from "@material-ui/core/Box";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import Badge from "@material-ui/core/Badge";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Link from "@material-ui/core/Link";
+import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import PeopleIcon from "@material-ui/icons/People";
+import BarChartIcon from "@material-ui/icons/BarChart";
+import LayersIcon from "@material-ui/icons/Layers";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import SingIn from "../../HomeTemplate/SingIn";
+import AddUserPage from "../AddUserPage";
+import Footer from "../../../components/Footer";
+
+// import { mainListItems, secondaryListItems } from './listItems';
+
+
+
+
+
 export default class Dashboard extends Component {
+  a = 0;
+  
+  renderElement = (a) => {
+    if (a === 0)
+      return <SingIn />;
+    else if (a === 1)
+      return <AddUserPage />
+    else
+      return <Footer />
+  }
+  hello = () => {
+    this.a = 1
+    console.log(this.a);
+    this.renderElement(this.a)
+  };
   render() {
     return (
       <div>
-        <div id="throbber" style={{ display: 'none', minHeight: 120 }} />
+        <CssBaseline />
+        <AppBar position="absolute">
+          <Toolbar>
+            <IconButton edge="start" color="inherit" aria-label="open drawer">
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              justify="flex-end"
+              component="h2"
+              variant="h3"
+              color="inherit"
+              noWrap
+            ></Typography>
+            <IconButton color="inherit">
+              <Badge badgeContent={2} color="secondary">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent">
+          <div>
+            <IconButton>
+              <ChevronLeftIcon />
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
+            <ListItem button onClick={this.hello}>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Thêm người dùng" />
+            </ListItem>
+            <ListItem button onClick={this.hello}>
+              <ListItemIcon>
+                <ShoppingCartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Quản lí thông tin người dùng" />
+            </ListItem>
 
-        <div id="noty-holder" />
+            <ListItem button onClick={this.hello}>
+              <ListItemIcon>
+                <PeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Quản lí vé phim" />
+            </ListItem>
+          </List>
+          <Divider />
+          <List></List>
+        </Drawer>
+        <main>
 
-        <div id="wrapper">
-          <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            {/* Brand and toggle get grouped for better mobile display */}
-            <div className="navbar-header">
-              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-              </button>
+          <Container maxWidth="lg">
+            <Grid justify="flex-end" container spacing={1}>
+              {/* Chart */}
+              {/* Recent Orders */}
 
-            </div>
-
-            {/* Sidebar Menu Items - These collapse to the responsive navigation menu on small screens */}
-            <div className="collapse navbar-collapse navbar-ex1-collapse">
-              <ul className="nav navbar-nav side-nav">
-                <li>
-                  <a href="#" data-toggle="collapse" data-target="#submenu-1"><i className="fa fa-fw fa-search" />DANH SÁCH QUẢN LÍ <i className="fa fa-fw fa-angle-down pull-right" /></a>
-                  <ul id="submenu-1" className="collapse">
-                    <li><a href="#"><i className="fa fa-angle-double-right" /> Quản lí người dùng</a></li>
-                    <li><a href="#"><i className="fa fa-angle-double-right" /> Quản lí vé phim</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <div id="page-wrapper">
-              <div className="container-fluid">
-                {/* Page Heading */}
-                <div className="row" id="main">
-                  <div className="col-sm-12 col-md-12 well" id="content">
-                    <h1>Welcome Admin!</h1>
-                    
-                  </div>
-                </div>
-                {/* /.row */}
-              </div>
-              {/* /.container-fluid */}
-            </div>
-
-            {/* /.navbar-collapse */}
-          </nav>
-
-        </div>
+              <Grid item xs={3} sm={7} md={8} lg={9}>
+                <Paper>
+                  {this.renderElement(this.a)}
+                </Paper>
+              </Grid>
+            </Grid>
+          </Container>
+        </main>
       </div>
     );
   }
