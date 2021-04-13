@@ -18,8 +18,6 @@ class Navbar extends Component {
     }
   };
   showInfo = () => {
-
-
     const { credential } = this.props;
     console.log(credential);
     return (
@@ -93,7 +91,7 @@ class Navbar extends Component {
                 activeClassName="active"
                 className="nav-link"
                 to="/about"
-              >
+              >git gi
                 Cụm rạp
               </NavLink>
             </li>
