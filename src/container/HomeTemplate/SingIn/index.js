@@ -8,9 +8,8 @@ class SignIn extends Component {
   //   if(localStorage.getItem('credential')){
   //     this.props.history.replace('/')
   //   }
-  
+
   render() {
-    
     return (
       <div className="w-50 mx-auto">
         <h1 className="display-4 text-center">Đăng nhập</h1>
@@ -22,11 +21,9 @@ class SignIn extends Component {
           onSubmit={(values) => {
             // }else{
 
-            this.props.fecthSignIn(values,this.props.history);
-            
-             console.log(values); 
-         
+            this.props.fecthSignIn(values, this.props.history);
 
+            console.log(values);
           }}
           render={(formikProps) => (
             <Form>
@@ -61,8 +58,8 @@ class SignIn extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fecthSignIn: (data,history) => {
-      dispatch(signIn(data,history));
+    fecthSignIn: (data, history) => {
+      dispatch(signIn(data, history));
     },
   };
 };

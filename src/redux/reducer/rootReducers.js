@@ -3,7 +3,7 @@ import QuanLyPhimReducer from "./QuanLyPhimReducer";
 import authReducer from "../../container/AdminTemplate/AuthPage/modules/reducer";
 import addUserReducer from "../../container/AdminTemplate/AddUserPage/modules/reducer";
 import QuanLyRapReducer from "./QuanLyRapReducer";
-import DatVeReducer from "./datveReducer";
+
 import signInReducer from "./signInReducer";
 import movieListReducer from "./movieListReducer";
 const rootReducer = combineReducers({
@@ -12,7 +12,6 @@ const rootReducer = combineReducers({
   QuanLyRapReducer,
   authReducer,
   addUserReducer,
-  DatVeReducer,
   signInReducer,
   movieListReducer,
 });
