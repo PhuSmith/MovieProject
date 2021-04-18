@@ -10,7 +10,6 @@ import { connect } from "react-redux";
 import SignIn from "./container/HomeTemplate/SingIn";
 import React, { Component } from "react";
 import { actSignIn } from "./redux/actions/act";
-
 class App extends Component {
   render() {
     const showLayoutHome = (route) => {
@@ -54,7 +53,8 @@ class App extends Component {
           {/* Auth */}
           <Route path="/auth" component={AuthPage} />
           <Route path="/dangnhap" component={SignIn} />
-
+          
+         
           {/* localhost:3000 - HomePage */}
           {/* <Route exact path="/" component={HomePage} /> */}
           {/* localhost:3000/about - AboutPage */}

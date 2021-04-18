@@ -116,7 +116,7 @@ class Navbar extends Component {
               </Link>
             </li>
             {this.showInfo()}
-          </ul>
+         </ul>
         </div>
       </nav>
     );
