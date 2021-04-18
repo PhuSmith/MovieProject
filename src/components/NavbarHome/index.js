@@ -69,7 +69,7 @@ class Navbar extends Component {
         id="header"
       >
         <Link className="navbar-brand" to="/" className="logo">
-          <img src="./images/web-logo.png" alt="" />
+          <img src={logo} alt="" />
         </Link>
         <div
           className="collapse navbar-collapse"
@@ -106,9 +106,9 @@ class Navbar extends Component {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink activeClassName="active" className="nav-link" to="/hoc">
+              <a activeClassName="active" className="nav-link" href="#footer">
                 Ứng dụng
-              </NavLink>
+              </a>
             </li>
             <li>
               <Link activeClassName="active" className="nav-link" to="/">

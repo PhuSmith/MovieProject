@@ -1,5 +1,6 @@
 import * as ActionType from "../types/QuanLyPhimType";
 import Axios from "axios";
+import Swal from "sweetalert2";
 
 export const actListMovieApi = () => {
   return (dispatch) => {
@@ -108,5 +109,43 @@ const actDetailMovieFailed = (err) => {
   return {
     type: ActionType.DETAIL_MOVIE_FAILED,
     payload: err,
+  };
+};
+//Action Đặt vé
+export const actDatVeApi = (thongTinVe, token) => {
+  return (dispatch) => {
+    dispatch(actDetailMovieRequest());
+    Axios({
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`,
+      method: "POST",
+      data: thongTinVe,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((result) => {
+        dispatch(layThongTinPhongVeApiAction(thongTinVe.maLichChieu));
+        dispatch({ type: "DAT_VE_THANH_CONG" });
+        Swal.fire("Thông báo", "Đặt vé thành công !", "success");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+export const datGheAction = (ghe, giaVe, stt) => {
+  return {
+    type: ActionType.DAT_GHE,
+    gheDangDat: {
+      maGhe: ghe,
+      giaVe: giaVe,
+      stt: stt,
+    },
+  };
+};
+export const huyGheAction = (soGhe) => {
+  return {
+    type: ActionType.HUY_GHE,
+    soGhe,
   };
 };

@@ -1,13 +1,4 @@
-/* @font-face {
-  font-family: "fontGame";
-  src: url("../font/Pony.ttf");
-} */
-
-.bookingMovie {
-  font-family: "fontGame";
-}
-
-.ghe {
+/* .ghe {
   border: 3px solid orange;
   width: 45px;
   height: 35px;
@@ -15,8 +6,26 @@
   margin-left: 2%;
   margin-bottom: 1%;
   border-radius: 5px;
+} */
+.ghe {
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(119, 114, 114);
+  color: #fff;
+  cursor: pointer;
 }
-
+.gheVip {
+  cursor: pointer;
+  background-color: orange;
+}
+.gheDaDat {
+  cursor: no-drop !important;
+  background-color: rgb(238, 229, 229);
+  color: rgb(133, 127, 127);
+}
 .rowNumber {
   /* font-size: 25px; */
   width: 45px;
@@ -45,7 +54,7 @@
   color: #fff;
 } */
 
-.gheDuocChon {
+/* .gheDuocChon {
   border: 3px solid orange;
 
   background: orange;
@@ -55,15 +64,8 @@
   border-radius: 5px;
   width: 45px;
   height: 35px;
-}
+} */
 
-.gheDangChon {
-  background: rgb(109, 238, 109);
-  border: 3px solid rgb(109, 238, 109);
-  color: #000;
-
-  cursor: pointer;
-  border-radius: 5px;
-  width: 45px;
-  height: 35px;
+.gheDangDat {
+  background-color: rgb(55, 167, 55);
 }

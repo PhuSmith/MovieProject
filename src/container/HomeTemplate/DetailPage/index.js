@@ -2,18 +2,22 @@ import React, { useEffect } from "react";
 import { actDetailMovieApi } from "../../../redux/actions/QuanLyPhimAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "./../../../components/Loader";
-import { NavLink, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import moment from "moment";
-
+import * as localStorageUtils from "../../../utils/localStorage";
+import { Button } from "bootstrap";
 export default function DetailMovie() {
   const dispatch = useDispatch();
   //Lay tham so tu url
   const { id } = useParams();
-
+  const history = useHistory();
   const { loading } = useSelector((state) => state.QuanLyPhimReducer);
-  console.log(loading);
 
   const { chiTietPhim } = useSelector((state) => state.QuanLyPhimReducer);
+  let username = null;
+  if (localStorageUtils.fetchFromStorage("credential")) {
+    username = localStorageUtils.fetchFromStorage("credential").taiKhoan;
+  }
 
   useEffect(() => {
     //Goi action Api tu redux
@@ -133,17 +137,22 @@ export default function DetailMovie() {
                               ?.slice(0, 12)
                               .map((lichChieu, index) => {
                                 return (
-                                  <NavLink
-                                    to={
-                                      "/chitietPhongVe/" + lichChieu.maLichChieu
-                                    }
-                                    key={index}
-                                    className="btn btn-success mr-2"
+                                  <button
+                                    className="btn btn-success"
+                                    onClick={() => {
+                                      if (localStorage.getItem("credential")) {
+                                        history.push(
+                                          `/chitietPhongVe/${lichChieu.maLichChieu}`
+                                        );
+                                      } else {
+                                        history.push("/dangNhap");
+                                      }
+                                    }}
                                   >
                                     {moment(lichChieu.ngayChieuGioChieu).format(
                                       "hh:mm A"
-                                    )}
-                                  </NavLink>
+                                    )}{" "}
+                                  </button>
                                 );
                               })}
                           </div>
