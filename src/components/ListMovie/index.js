@@ -64,7 +64,15 @@ class ListMovie extends Component {
               <Slider {...settings}>
                 {data &&
                   data.map((item, index) => {
-                    return <Movie key={index} movie={item} />;
+                    return (
+                      <Movie
+                        key={index}
+                        hinhAnh={item.hinhAnh}
+                        tenPhim={item.tenPhim}
+                        maPhim={item.maPhim}
+                        videoTrailer={item.trailer}
+                      />
+                    );
                   })}
               </Slider>
             </div>

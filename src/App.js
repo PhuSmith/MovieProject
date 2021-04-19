@@ -8,8 +8,10 @@ import AuthPage from "./container/AdminTemplate/AuthPage";
 import BookingTicket from "./container/HomeTemplate/BookingTicket";
 import { connect } from "react-redux";
 import SignIn from "./container/HomeTemplate/SingIn";
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { actSignIn } from "./redux/actions/act";
+import TrailerPopup from "./components/TrailerPopup";
+import * as sharedActions from "./redux/actions/sharedActions";
 class App extends Component {
   render() {
     const showLayoutHome = (route) => {
@@ -43,28 +45,23 @@ class App extends Component {
     };
 
     return (
-      <BrowserRouter>
-        <Switch>
-          {showLayoutAdmin(routesAdmin)}
-          {showLayoutHome(routeHome)}
-
-          <Route path="/chitietPhongVe/:id" component={BookingTicket} />
-
-          {/* Auth */}
-          <Route path="/auth" component={AuthPage} />
-          <Route path="/dangnhap" component={SignIn} />
-          
-         
-          {/* localhost:3000 - HomePage */}
-          {/* <Route exact path="/" component={HomePage} /> */}
-          {/* localhost:3000/about - AboutPage */}
-          {/* <Route path="/about" component={AboutPage} /> */}
-          {/* localhost:3000/list-movie - ListMoviePage */}
-          {/* <Route path="/list-movie" component={ListMoviePage} /> */}
-          {/* PageNotFound */}
-          <Route path="" component={PageNotFound} />
-        </Switch>
-      </BrowserRouter>
+      <Fragment>
+        <BrowserRouter>
+          <Switch>
+            {showLayoutAdmin(routesAdmin)}
+            {showLayoutHome(routeHome)}
+            <Route path="/chitietPhongVe/:id" component={BookingTicket} />
+            <Route path="/auth" component={AuthPage} />
+            <Route path="/dangnhap" component={SignIn} />
+            <Route path="" component={PageNotFound} />
+          </Switch>
+        </BrowserRouter>
+        <TrailerPopup
+          isOpen={this.props.isOpenVideoTrailer}
+          onClose={this.props.OpenVideoTrailer}
+          videoId={this.props.videoTrailer}
+        />
+      </Fragment>
     );
   }
   _getCrenditailFromLocal = () => {
@@ -77,5 +74,15 @@ class App extends Component {
     this._getCrenditailFromLocal();
   }
 }
-
-export default connect()(App);
+const mapStateToProps = (state) => {
+  return {
+    videoTrailer: state.sharedReducer.videoTrailer,
+    isOpenVideoTrailer: state.sharedReducer.isOpenVideoTrailer,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    OpenVideoTrailer: dispatch(sharedActions.actIsOpenVideoTrailer(false)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(App);

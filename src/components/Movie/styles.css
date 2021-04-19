@@ -43,6 +43,7 @@
 }
 .movie__item:hover .Trailer {
   opacity: 1;
+  cursor: pointer;
 }
 .Trailer {
   position: absolute;
