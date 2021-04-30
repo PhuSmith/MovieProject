@@ -6,6 +6,8 @@ import AddUser from "./../container/AdminTemplate/AddUserPage";
 import DetailMovie from "./../container/HomeTemplate/DetailPage";
 import Signup from "../container/HomeTemplate/Signup";
 import NavbarAdmin from "../components/NavbarAdmin";
+import UserControll from "../container/AdminTemplate/UserControll";
+import HomeRedux from "../container/HomeTemplate/Usermanagement-redux"
 
 const routeHome = [
   {
@@ -47,6 +49,12 @@ const routesAdmin = [
     component: AddUser,
     exact: false,
   },
+  {
+    path: "/userList",
+    component: HomeRedux,
+    exact: false,
+  },
+  
 ];
 
 export { routeHome, routesAdmin };
