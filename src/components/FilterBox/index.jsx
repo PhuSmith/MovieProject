@@ -18,6 +18,7 @@ function FilterBox() {
   console.log(movies);
 
   const onChangeMovieHandler = (e) => {
+    
     const movieId = e.target.value.split("- ")[1];
     console.log(movieId);
     dispatch(movieListActions.actChooseMovieFilter(movieId));

@@ -1,54 +1,49 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { actDeleteUser,actEditUser } from "./modules/action.js";
-class UserItem extends Component {
+import React, { useEffect } from "react";
+import { actDeleteUser,actEditUser } from "../../../redux/actions/QuanLiNguoiDungAction";
+import * as local from "../../../utils/localStorage"
+import { useDispatch, useSelector } from "react-redux";
+import { actListUserAPI } from "../../../redux/actions/QuanLiNguoiDungAction";
 
-  render() {
-    const { user } = this.props;
+function UserItem (props){
+
+  const dispatch = useDispatch();
+
+ 
+  useEffect((taiKhoan,accessToken) => {
+    dispatch(actListUserAPI());
+     actDeleteUser(taiKhoan,accessToken);
+  },[]);
+ 
+    const { user } = props;
+    // console.log(user)
     return (
       <tr>
-        <td>{user.name}</td>
-        <td>{user.username}</td>
+        <td>{user.taiKhoan}</td>
+        <td>{user.hoTen}</td>
         <td>{user.email}</td>
-        <td>{user.phoneNumber}</td>
-        <td>{user.type}</td>
+        <td>{user.soDt}</td>
+        <td>{user.maLoaiNguoiDung}</td>
         <td>
           <button
             className="btn btn-info mr-2"
             data-toggle="modal"
             data-target="#modelIdUser"
             onClick={() => {
-              this.props.editUser(user);
+              props.editUser(user);
+              console.log(props.editUser(user));
             }}
           >
             Edit
           </button>
           <button className="btn btn-danger" onClick={() => {
-            console.log(user.id);
-            // this.props.deleteUser(user.id)
-            this.props.deleteUser(user.id);
+             const{
+              accessToken,
+            }=local.fetchFromStorage("UserAdmin")
+            
+            actDeleteUser(user.taiKhoan,accessToken);
           }}>Delete</button>
         </td>
       </tr>
-    );
-  }
+    )
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    //key:value
-    // key- ten props ngay tai component dang su dung
-    deleteUser: (id) => {
-
-      dispatch(actDeleteUser(id));
-    },
-    editUser: (user) => {
-      
-      dispatch(actEditUser(user))
-    },
-  }
-}
-
-
-
-
-export default connect(null, mapDispatchToProps)(UserItem);
+export default UserItem;

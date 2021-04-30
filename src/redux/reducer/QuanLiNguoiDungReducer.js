@@ -1,41 +1,32 @@
-import * as ActionType from "./constant.js"
-
+import * as ActionType from "../types/QuanLiNguoiDungType"
+import * as ActionType1 from "../types/DeleteUser"
 let initialState = {
     userList: [
-        {
-            id: 1,
-            name: "Dinh Phuc Nguyen",
-            username: "dpnguyen",
-            email: "dpnguyen@gmail.com",
-            phoneNumber: "1123123213",
-            type: "VIP",
-        },
-        {
-            id: 2,
-            name: "hao",
-            username: "nguyendp",
-            email: "nguyendp@gmail.com",
-            phoneNumber: "1123123213",
-            type: "VIP",
-        },
     ],
     userEdit: null,
     keyword: ""
 };
-const userReducer = (state = initialState, action) => {
-    console.log(action);
+const QuanLiNguoiDungReducer = (state = initialState, action) => {
+  
     switch (action.type) {
-        case ActionType.DELETE_USER:
-            let userList = [...state.userList];
-            const index = userList.findIndex((user) => {
-                return user.id === action.payload
-            })
-            console.log(index)
-            if (index !== -1) {
-                userList.splice(index, 1);
-                state.userList = userList;
-            }
+        case ActionType.LIST_USER_SUCCESS:
+            state.userList=action.payload
             return { ...state };
+
+        // case ActionType1.DELETE_USER_SUCCESS:{
+        //     let userList = [...state.userList];
+        //     console.log(action.payload)
+        //     const index = userList.findIndex((user) => {
+        //         return user.taiKhoan === action.payload
+        //     })
+        //     console.log(index)
+        //     if (index !== -1) {
+        //         userList.splice(index, 1);
+        //       state.userList = userList;   
+        //     }
+           
+        //     return { ...state };
+        // }
         case ActionType.ON_SAVE: {
             if (action.payload.id) {
                 const index = state.userList.findIndex((item) => {
@@ -79,4 +70,4 @@ const userReducer = (state = initialState, action) => {
 
 }
 
-export default userReducer;
+export default QuanLiNguoiDungReducer;

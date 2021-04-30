@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
-import {actSearch} from "./modules/action";
+import {actSearch} from "../../../redux/actions/QuanLiNguoiDungAction";;
 class Search extends Component {
   render() {
     return <input type="text" className="form-control mb-3 w-50" onChange={(event)=>{

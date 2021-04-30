@@ -6,6 +6,7 @@ import QuanLyRapReducer from "./QuanLyRapReducer";
 
 import signInReducer from "./signInReducer";
 import movieListReducer from "./movieListReducer";
+import QuanLiNguoiDungReducer from "./QuanLiNguoiDungReducer"
 const rootReducer = combineReducers({
   //key: value
   QuanLyPhimReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   addUserReducer,
   signInReducer,
   movieListReducer,
+  QuanLiNguoiDungReducer,
 });
 
 export default rootReducer;
