@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import {connect} from "react-redux";
-import {actOnSave} from "./modules/action";
+import { connect } from "react-redux";
+import { actOnSave } from "../../../redux/actions/QuanLiNguoiDungAction";
 class Modal extends Component {
   constructor(props) {
     super(props);
+    const{userList,userEdit}=this.props
     this.state = {
       id: "",
       username: "",
@@ -13,16 +14,20 @@ class Modal extends Component {
       type: "USER"
 
     };
-    /**
-     * Ham khoi tao chay 1 lan duy nhat
-     */
-    console.log("constructor");
+   
   }
+
+  
   handleOnChange = (event) => {
     console.log(event.target.name, event.target.value);
     const { name, value } = event.target;
     this.setState({
+      ...this.state,
       [name]: value,
+      [event.target.name]:event.target.value,
+     
+      
+      
     });
 
   };
@@ -45,11 +50,11 @@ class Modal extends Component {
       //Truong hop edit user
       this.setState({
         id: nextProps.userEdit.id,
-        username: nextProps.userEdit.username,
-        name: nextProps.userEdit.name,
+        username: nextProps.userEdit.hoTen,
+        name: nextProps.userEdit.taiKhoan,
         email: nextProps.userEdit.email,
-        phoneNumber: nextProps.userEdit.phoneNumber,
-        type: nextProps.userEdit.type,
+        phoneNumber: nextProps.userEdit.soDt,
+        type: nextProps.userEdit.maLoaiNguoiDung,
       });
 
     }
@@ -66,8 +71,15 @@ class Modal extends Component {
     }
     console.log("componentWillReceiveProps", nextProps);
   }
+  static getDerivedStateFromProps(props,state){
+   if(props.userList.hoTen!== state.userEdit?.hoTen){
+    return {...state,userList:props.userEdit}
+   }
+   return state;
+    
+  }
   render() {
-    console.log("render");
+    const {userList,userEdit}=this.props
 
     return (
       <div
@@ -81,7 +93,7 @@ class Modal extends Component {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">{this.props.userEdit ? "EDIT USER" : "ADD USER"}</h5>
+              <h5 className="modal-title">{userEdit ? "EDIT USER" : "ADD USER"}</h5>
               <button
                 type="button"
                 className="close"
@@ -96,23 +108,23 @@ class Modal extends Component {
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   <label>Username</label>
-                  <input type="text" className="form-control" name="username" value={this.state.username} onChange={this.handleOnChange} />
+                  <input type="text" className="form-control" name="hoTen" value={userEdit?.hoTen} onChange={this.handleOnChange} />
                 </div>
                 <div className="form-group">
                   <label>Name</label>
-                  <input type="text" className="form-control" name="name" value={this.state.name} onChange={this.handleOnChange} />
+                  <input type="text" className="form-control" name="taiKhoan" value={userEdit?.taiKhoan} onChange={this.handleOnChange} />
                 </div>
                 <div className="form-group">
                   <label>Email</label>
-                  <input type="text" className="form-control" name="email" value={this.state.email} onChange={this.handleOnChange} />
+                  <input type="text" className="form-control" name="email" value={userEdit?.email} onChange={this.handleOnChange} />
                 </div>
                 <div className="form-group">
                   <label>Phone Number</label>
-                  <input type="text" className="form-control" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleOnChange} />
+                  <input type="text" className="form-control" name="soDt" value={userEdit?.soDt} onChange={this.handleOnChange} />
                 </div>
                 <div className="form-group">
                   <label>Type</label>
-                  <select className="form-control" name="type" value={this.state.type} onChange={this.handleOnChange}>
+                  <select className="form-control" name="maLoaiNguoiDung" value={userEdit?.maLoaiNguoiDung} onChange={this.handleOnChange}>
                     <option>USER</option>
                     <option>VIP</option>
                   </select>
@@ -129,19 +141,20 @@ class Modal extends Component {
   }
 }
 
-const mapStateToProps =(state) =>{
-  return{
-    userEdit:state.userReducer.userEdit,
+const mapStateToProps = (state) => {
+  return {
+    userEdit: state.QuanLiNguoiDungReducer.userEdit,
+    userList:state.QuanLiNguoiDungReducer.userList,
   }
 }
-const mapDispatchToProps =(dispatch)=>{
-  return{
-    onSave:(user)=>{
-      
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSave: (user) => {
+
       dispatch(actOnSave(user));
     }
-    
+
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps) (Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

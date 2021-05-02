@@ -6,6 +6,7 @@ import QuanLyRapReducer from "./QuanLyRapReducer";
 import sharedReducer from "./sharedReducer";
 import signInReducer from "./signInReducer";
 import movieListReducer from "./movieListReducer";
+import QuanLiNguoiDungReducer from "./QuanLiNguoiDungReducer"
 const rootReducer = combineReducers({
   //key: value
   QuanLyPhimReducer,
@@ -14,7 +15,11 @@ const rootReducer = combineReducers({
   addUserReducer,
   signInReducer,
   movieListReducer,
+<<<<<<< HEAD
   sharedReducer,
+=======
+  QuanLiNguoiDungReducer,
+>>>>>>> 2d965b411f8dd92848e037e65ca02925dfb09e0a
 });
 
 export default rootReducer;
