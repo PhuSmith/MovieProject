@@ -12,7 +12,6 @@ import * as localStorageUtils from "../../../utils/localStorage";
 
 export default function BookingTicket() {
   const dispatch = useDispatch();
-  const history = useHistory();
   const thongTinPhongVe = useSelector(
     (state) => state.QuanLyPhimReducer.thongTinPhongVe
   );
@@ -42,6 +41,7 @@ export default function BookingTicket() {
                   let classGheDaDat = ghe.daDat ? "gheDaDat" : "";
                   let noiDung = ghe.daDat ? "X" : ghe.stt;
                   let disabled = ghe.daDat ? "disable" : "";
+                  let datVe = "datVe";
                   let indexGheDangDat = danhSachGheDangDat.findIndex(
                     (gheDangDat) => ghe.maGhe === gheDangDat.maGhe
                   );
@@ -119,21 +119,20 @@ export default function BookingTicket() {
 
               <hr />
               <button
-                className="btn btn-success w-100 p-3"
+                className="btn btn-success w-100 p-3 datVe"
+                disabled={danhSachGheDangDat.length < 1 ? "disabled" : null}
                 style={{ fontSize: 25 }}
                 onClick={() => {
-                  if (localStorage.getItem("credential")) {
-                    const {
-                      taiKhoan,
-                      accessToken,
-                    } = localStorageUtils.fetchFromStorage("credential");
-                    let objDatVe = {
-                      maLichChieu: id,
-                      danhSachVe: danhSachGheDangDat,
-                      taiKhoanNguoiDung: taiKhoan,
-                    };
-                    dispatch(actDatVeApi(objDatVe, accessToken));
-                  }
+                  const {
+                    taiKhoan,
+                    accessToken,
+                  } = localStorageUtils.fetchFromStorage("credential");
+                  let objDatVe = {
+                    maLichChieu: id,
+                    danhSachVe: danhSachGheDangDat,
+                    taiKhoanNguoiDung: taiKhoan,
+                  };
+                  dispatch(actDatVeApi(objDatVe, accessToken));
                 }}
               >
                 ĐẶT VÉ

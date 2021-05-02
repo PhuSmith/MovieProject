@@ -3,7 +3,7 @@ import Search from "./Search";
 import Users from "./Users";
 import Modal from "./Modal";
 import { connect } from "react-redux";
-import {actAddUser} from "./modules/action";
+import { actAddUser } from "./modules/action";
 class HomeRedux extends Component {
   constructor(props) {
     super(props);
@@ -27,9 +27,9 @@ class HomeRedux extends Component {
         },
       ],
       userEdit: null,
-      keyword: ""
+      keyword: "",
     };
-  };
+  }
   render() {
     return (
       <div className="container">
@@ -54,11 +54,8 @@ class HomeRedux extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     addUser: () => {
-      
       dispatch(actAddUser(null));
     },
-  }
-}
+  };
+};
 export default connect(null, mapDispatchToProps)(HomeRedux);
-
-

@@ -1,0 +1,16 @@
+.Trailer {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.movie__item:hover .Trailer {
+  opacity: 1;
+  cursor: pointer;
+}

@@ -1,29 +1,24 @@
-import React, { Component } from "react";
-import { withStyles } from "@material-ui/core";
-import { styles } from "./styles";
+import React, { Component, Fragment } from "react";
 import Carousel from "../../../components/Carousel";
-import FilterBox from "../../../components/FilterBox";
 import ListMovie from "../../../components/ListMovie";
-import ListCinema from "../../../components/ListCinema";
+import ListTheaters from "../../../components/ListTheaters";
 import AppMobile from "../../../components/AppMobile";
 
 class HomePage extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
         <Carousel />
-        <FilterBox />
-        <ListMovie />
-        <ListCinema />
-        <AppMobile />
-      </div>
+        <div style={{ maxWidth: "940px", margin: "0 auto" }}>
+          <ListMovie />
+          <ListTheaters />
+        </div>
+        <div className="container-fluid">
+          <AppMobile />
+        </div>
+      </Fragment>
     );
   }
 }
 
-export default withStyles(styles)(HomePage);
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(withStyles(styles)(HomePage));
+export default HomePage;

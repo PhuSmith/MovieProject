@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <footer id="footer">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-md-3">
               <p className="title">Tix</p>

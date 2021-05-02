@@ -1,33 +1,17 @@
 import React, { Component } from "react";
-import Movie from "../Movie";
-// import Loader from "../Loader";
-import { actListMovieApi } from "../../redux/actions/QuanLyPhimAction";
-import { connect } from "react-redux";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-class ListMovie extends Component {
-  componentDidMount() {
-    this.props.fetchListMovie();
-  }
-
+import PhimDangChieu from "../PhimDangChieu";
+import "./styles.css";
+export default class ListMovie extends Component {
   render() {
-    const { data } = this.props;
-    const settings = {
-      className: "center",
-      centerMode: false,
-      infinite: true,
-      slidesToShow: 4,
-      speed: 500,
-      rows: 1,
-      slidesPerRow: 2,
-    };
     return (
       <div>
-        <div style={{ maxWidth: "940px", margin: "0 auto" }}>
-          <ul className="nav nav-tabs my-5" id="myTab" role="tablist">
-            <li className="nav-item col-6">
+        <div>
+          <ul
+            className="nav nav-tabs my-5 navigation__tab"
+            id="myTab"
+            role="tablist"
+          >
+            <li className="nav-item">
               <a
                 className="nav-link active"
                 id="home-tab"
@@ -40,7 +24,7 @@ class ListMovie extends Component {
                 Đang chiếu
               </a>
             </li>
-            <li className="nav-item col-6">
+            <li className="nav-item">
               <a
                 className="nav-link"
                 id="profile-tab"
@@ -61,20 +45,7 @@ class ListMovie extends Component {
               role="tabpanel"
               aria-labelledby="home-tab"
             >
-              <Slider {...settings}>
-                {data &&
-                  data.map((item, index) => {
-                    return (
-                      <Movie
-                        key={index}
-                        hinhAnh={item.hinhAnh}
-                        tenPhim={item.tenPhim}
-                        maPhim={item.maPhim}
-                        videoTrailer={item.trailer}
-                      />
-                    );
-                  })}
-              </Slider>
+              <PhimDangChieu />
             </div>
             <div
               className="tab-pane fade"
@@ -90,20 +61,3 @@ class ListMovie extends Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    loading: state.QuanLyPhimReducer.loading,
-    data: state.QuanLyPhimReducer.dsPhim,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchListMovie: () => {
-      dispatch(actListMovieApi());
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ListMovie);

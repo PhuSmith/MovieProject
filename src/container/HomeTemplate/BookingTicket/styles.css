@@ -69,3 +69,6 @@
 .gheDangDat {
   background-color: rgb(55, 167, 55);
 }
+.datVe {
+  cursor: no-drop;
+}

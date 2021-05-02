@@ -1,11 +1,7 @@
 import HomePage from "./../container/HomeTemplate/HomePage";
-import AboutPage from "./../container/HomeTemplate/AboutPage";
-import HocPage from "./../container/HomeTemplate/HocPage";
-
 import AddUser from "./../container/AdminTemplate/AddUserPage";
 import DetailMovie from "./../container/HomeTemplate/DetailPage";
 import Signup from "../container/HomeTemplate/Signup";
-import NavbarAdmin from "../components/NavbarAdmin";
 
 const routeHome = [
   {
@@ -13,22 +9,13 @@ const routeHome = [
     component: HomePage,
     exact: true,
   },
-  {
-    path: "/about",
-    component: AboutPage,
-    exact: false,
-  },
 
   {
     path: "/detail/:id",
     component: DetailMovie,
     exact: false,
   },
-  {
-    path: "/hoc",
-    component: HocPage,
-    exact: false,
-  },
+
   {
     path: "/dangky",
     component: Signup,

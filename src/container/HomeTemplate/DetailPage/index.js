@@ -5,7 +5,10 @@ import Loader from "./../../../components/Loader";
 import { useHistory, useParams } from "react-router-dom";
 import moment from "moment";
 import * as localStorageUtils from "../../../utils/localStorage";
-import { Button } from "bootstrap";
+import getIdVideoTrailer from "../../../utils/getIdVideoTrailer";
+import * as sharedActions from "../../../redux/actions/sharedActions";
+import playButton from "../../../assets/images/play-video.png";
+import "./styles.css";
 export default function DetailMovie() {
   const dispatch = useDispatch();
   //Lay tham so tu url
@@ -49,13 +52,26 @@ export default function DetailMovie() {
         }}
       ></div> */}
       <div className="row">
-        <div className="col-6">
+        <div className="col-6 movie__item">
           <img
             className="mt-5"
             src={chiTietPhim.hinhAnh}
             style={{ width: 300, height: 150 }}
             alt=""
           />
+          <div
+            className="Trailer"
+            onClick={() => {
+              dispatch(
+                sharedActions.actViewTrailer(
+                  getIdVideoTrailer(chiTietPhim.trailer)
+                )
+              );
+              dispatch(sharedActions.actIsOpenVideoTrailer(true));
+            }}
+          >
+            <img className="w-100" src={playButton} alt="play-button" />
+          </div>
         </div>
         <div className="col-6">
           <table className="table">

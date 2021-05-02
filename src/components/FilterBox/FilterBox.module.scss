@@ -1,13 +1,19 @@
 @import "../../assets/sass/helpers/variables.scss";
 @import "../../assets/sass/helpers/mixins.scss";
 
-.Search {
-  background: white;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  margin-top: -80px;
-  position: relative;
+.homeTools {
+  display: block;
+  max-width: 940px;
+  margin: auto;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: #fff;
+  border-radius: 5px;
+  z-index: 2;
   .Content {
     .Header {
       margin-bottom: $mg-2;

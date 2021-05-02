@@ -3,7 +3,6 @@ import ModalVideo from "react-modal-video";
 import "./TrailerPopup.scss";
 
 function TrailerPopup(props) {
-  console.log(props);
   return (
     <ModalVideo
       channel="youtube"

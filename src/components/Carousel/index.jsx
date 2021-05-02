@@ -1,22 +1,47 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
-
-class Carousel extends Component {
+import FilterBox from "../FilterBox";
+function SampleNextArrow(props) {
+  const { className, onClick } = props;
+  return <div className={className} onClick={onClick}></div>;
+}
+function SamplePrevArrow(props) {
+  const { className, onClick } = props;
+  return <div className={className} onClick={onClick}></div>;
+}
+export default class Carousel extends Component {
   render() {
     const settings = {
       dots: true,
       infinite: true,
-      speed: 500,
+      autoplay: true,
+      speed: 200,
+      lazyLoad: true,
       slidesToShow: 1,
       slidesToScroll: 1,
-      classNames: "slides",
       arrows: true,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
+      appendDots: (dots) => (
+        <div>
+          <ul style={{ margin: "0px" }}>{dots} </ul>
+        </div>
+      ),
+      customPaging: (i) => (
+        <div
+          className="dot"
+          style={{
+            width: "12px",
+            height: "12px",
+            borderRadius: "50%",
+            backgroundColor: "#d8d8d8",
+          }}
+        ></div>
+      ),
     };
     return (
-      <div>
+      <div className="carousel container">
         <Slider {...settings}>
           <div>
             <img
@@ -55,9 +80,10 @@ class Carousel extends Component {
             />
           </div>
         </Slider>
+        <div>
+          <FilterBox />
+        </div>
       </div>
     );
   }
 }
-
-export default Carousel;
