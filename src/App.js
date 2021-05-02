@@ -58,22 +58,23 @@ class App extends Component {
         </BrowserRouter>
         <TrailerPopup
           isOpen={this.props.isOpenVideoTrailer}
-          onClose={this.props.OpenVideoTrailer}
+          onClose={() => {
+            this.props.CloseVideoTrailer(false);
+          }}
           videoId={this.props.videoTrailer}
+          // onClose={this.CloseVideoTrailer}
         />
       </Fragment>
     );
   }
-  _getCrenditailFromLocal = () => {
-    const credentials = localStorage.getItem("credential");
-    if (credentials) {
-      this.props.dispatch(actSignIn(JSON.parse(credentials)));
-    }
-  };
+  // CloseVideoTrailer = () => {
+  //   this.props.dispatch(sharedActions.actIsOpenVideoTrailer(false));
+  // };
   componentDidMount() {
-    this._getCrenditailFromLocal();
+    this.props.getCrenditailFromLocal();
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     videoTrailer: state.sharedReducer.videoTrailer,
@@ -82,7 +83,15 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    OpenVideoTrailer: dispatch(sharedActions.actIsOpenVideoTrailer(false)),
+    CloseVideoTrailer: (data) => {
+      dispatch(sharedActions.actIsOpenVideoTrailer(data));
+    },
+    getCrenditailFromLocal: () => {
+      const credentials = localStorage.getItem("credential");
+      if (credentials) {
+        dispatch(actSignIn(JSON.parse(credentials)));
+      }
+    },
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);

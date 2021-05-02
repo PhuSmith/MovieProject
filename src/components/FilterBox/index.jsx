@@ -15,13 +15,9 @@ function FilterBox() {
     hourFilter,
     filterResult,
   } = useSelector((state) => state.movieListReducer);
-  console.log(movies);
 
   const onChangeMovieHandler = (e) => {
-    
-    const movieId = e.target.value.split("- ")[1];
-    console.log(movieId);
-    dispatch(movieListActions.actChooseMovieFilter(movieId));
+    dispatch(movieListActions.actChooseMovieFilter(e.target.value));
   };
   const onChangeTheaterHandler = (e) => {
     dispatch(movieListActions.actChooseTheaterFilter(e.target.value));
@@ -41,7 +37,7 @@ function FilterBox() {
     return uniqueDate.map((date, index) => <option key={index}>{date}</option>);
   };
   return (
-    <div className={`${styles.Search} container-lg p-0`}>
+    <div className={`${styles.homeTools} container-lg p-0`}>
       <div className={styles.Overlay}></div>
       <div className={styles.Content}>
         <div className={styles.Header}></div>
@@ -60,8 +56,8 @@ function FilterBox() {
                         Phim
                       </option>
                       {movies?.map((movie, index) => (
-                        <option key={index}>
-                          {movie.tenPhim} - {movie.maPhim}
+                        <option key={index} value={movie.maPhim}>
+                          {movie.tenPhim}
                         </option>
                       ))}
                     </select>

@@ -2,16 +2,13 @@ import React, { Component } from "react";
 import "./styles.css";
 import mobile from "../../assets/images/slide1.jpg";
 import mobile1 from "../../assets/images/slide10.jpg";
+
 export default class AppMobile extends Component {
   render() {
     return (
       <section className="app__content">
         <div className="row">
-          <div
-            className="col-12 block"
-            id="homeApp"
-            style={{ backgroundImage: "url('./images/backapp.jpg')" }}
-          >
+          <div className="col-12 block" id="homeApp">
             <div className="mainMaxWidth" id="homeApp">
               <div className="container">
                 <div className="row">
@@ -56,11 +53,7 @@ export default class AppMobile extends Component {
                   <div className="col-12 col-lg-3 right">
                     <div className="imgMoblie">
                       <div className="phone-img">
-                        <img
-                          // className="img-responsive "
-                          src="./images/mobile.png"
-                          alt=""
-                        />
+                        <img src="./images/mobile.png" alt="" />
                       </div>
                       <div
                         id="carouselControls"

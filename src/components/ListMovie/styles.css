@@ -1,4 +1,25 @@
-.myContainer {
-  max-width: 940px;
-  margin: 0 auto;
+.navigation__tab {
+  border: none;
+  justify-content: center;
+}
+.navigation__tab .nav-item .nav-link.active {
+  color: #fa5238;
+  font-size: 24px;
+  transform: scale(1);
+  background: transparent;
+}
+.navigation__tab .nav-item .nav-link {
+  border: none;
+  border-radius: 0;
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  transform: scale(0.83333);
+  transition: all 0.2s;
+}
+.navigation__tab .nav-item .nav-link:hover {
+  transform: scale(1);
+}
+.nav-tabs {
+  border-bottom: none !important;
 }

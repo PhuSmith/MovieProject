@@ -22,13 +22,6 @@ export const actFetchAllMovies = (groupId, currentPage, resPerPage) => {
   };
 };
 
-export const actChangeShowingOption = (query) => {
-  return {
-    type: movieListConstants.CHANGE_SHOWING_OPTION,
-    payload: query,
-  };
-};
-
 export const actChooseMovieFilter = (movieId) => {
   return (dispatch) => {
     return movieDetailService
@@ -67,5 +60,12 @@ export const actChooseHourFilter = (hour) => {
 export const actClearFilterResult = () => {
   return {
     type: movieListConstants.CLEAR_FILTER_RESULT,
+  };
+};
+
+export const actChangeShowingOption = (query) => {
+  return {
+    type: movieListConstants.CHANGE_SHOWING_OPTION,
+    payload: query,
   };
 };

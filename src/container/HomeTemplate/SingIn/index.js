@@ -1,29 +1,28 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { Form, Formik, Field } from "formik";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { signIn } from "../../../redux/actions/actSignin";
+import bg from "../../../assets/images/backapp.jpg";
+import "./styles.css";
 
-class SignIn extends Component {
-  // goToHomePage=()=>{
-  //   if(localStorage.getItem('credential')){
-  //     this.props.history.replace('/')
-  //   }
+export default function SignIn() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const credential = useSelector((state) => state.signInReducer);
 
-  render() {
-    return (
-      <div className="w-50 mx-auto">
-        <h1 className="display-4 text-center">Đăng nhập</h1>
+  return (
+    <div>
+      <img className="img-fluid" src={bg} alt={bg} />
+      <div className="mx-auto signin">
+        <h1 className="display-5 text-center">Đăng nhập</h1>
         <Formik
           initialValues={{
             taiKhoan: "",
             matKhau: "",
           }}
           onSubmit={(values) => {
-            // }else{
-
-            this.props.fecthSignIn(values, this.props.history);
-
-            console.log(values);
+            dispatch(signIn(values, history));
           }}
           render={(formikProps) => (
             <Form>
@@ -52,20 +51,6 @@ class SignIn extends Component {
           )}
         />
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fecthSignIn: (data, history) => {
-      dispatch(signIn(data, history));
-    },
-  };
-};
-const mapStateToProps = (state) => {
-  return {
-    credential: state.signInReducer.credential,
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

@@ -1,13 +1,11 @@
-import { NavLink, Link, useHistory } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./styles.css";
 import logo from "./../../assets/images/logo.png";
+import avatar from "./../../assets/images/avatar.png";
 import { connect } from "react-redux";
 import Countries from "../ComboCountries";
-
-import { Nav, NavDropdown, Dropdown } from "react-bootstrap";
-import HomePage from "../../container/HomeTemplate/HomePage";
-import HomeTemplate from "../../container/HomeTemplate";
-import { Component } from "react";
+import { Dropdown } from "react-bootstrap";
+import { Component, Fragment } from "react";
 import { actSignIn } from "../../redux/actions/act";
 class Navbar extends Component {
   logOut = () => {
@@ -19,28 +17,21 @@ class Navbar extends Component {
   };
   showInfo = () => {
     const { credential } = this.props;
-    console.log(credential);
+
     return credential === null ? (
-      <>
+      <ul className="nav-list">
         <li className="nav-item">
-          <NavLink
-            activeStyle={{ color: "red" }}
-            to="/dangky"
-            className="nav-link"
-          >
-            Đăng ký
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink
-            activeStyle={{ color: "red" }}
-            to="/dangnhap"
-            className="nav-link"
-          >
+          <Link to="/dangnhap" className="nav-link">
+            <img className="avatar-img" src={avatar} alt="avatar" />
             Đăng nhập
-          </NavLink>
+          </Link>
         </li>
-      </>
+        <li className="nav-item">
+          <Link to="/dangky" className="nav-link">
+            Đăng ký
+          </Link>
+        </li>
+      </ul>
     ) : (
       <>
         <li className="nav-item">
@@ -64,61 +55,84 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav
-        className="navbar navbar-expand-md justify-content-between"
-        id="header"
-      >
-        <Link className="navbar-brand" to="/" className="logo">
-          <img src={logo} alt="" />
+      <header id="header">
+        <Link to="/" className="logo">
+          <img src={logo} alt="logo" />
         </Link>
-        <div
-          className="collapse navbar-collapse"
-          id="collapsibleNavbar"
-          className="header__menu"
-        >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink
-                exact
-                activeClassName="active"
-                className="nav-link"
-                to="/"
-              >
-                Lịch Chiếu
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                activeClassName="active"
-                className="nav-link"
-                to="/about"
-              >
-                Cụm rạp
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                activeClassName="active"
-                className="nav-link"
-                to="/list-movie"
-              >
-                Tin tức
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <a activeClassName="active" className="nav-link" href="#footer">
-                Ứng dụng
-              </a>
+        <nav className="header__menu">
+          <ul>
+            <li>
+              <Link href="#">Lịch chiếu</Link>
             </li>
             <li>
-              <Link activeClassName="active" className="nav-link" to="/">
-                <Countries />
-              </Link>
+              <a href="#">Cụm rạp</a>
             </li>
-            {this.showInfo()}
-         </ul>
-        </div>
-      </nav>
+            <li>
+              <a href="#">Tin tức</a>
+            </li>
+            <li>
+              <a href="#">Ứng dụng</a>
+            </li>
+          </ul>
+        </nav>
+        <Fragment>{this.showInfo()}</Fragment>
+      </header>
+
+      // <nav
+      //   className="navbar navbar-expand-md justify-content-between"
+      //   id="header"
+      // >
+      //   <Link className="navbar-brand" to="/" className="logo">
+      //     <img src={logo} alt="" />
+      //   </Link>
+      //   <div
+      //     className="collapse navbar-collapse"
+      //     id="collapsibleNavbar"
+      //     className="header__menu"
+      //   >
+      //     <ul className="navbar-nav">
+      //       <li className="nav-item">
+      //         <NavLink
+      //           exact
+      //           activeClassName="active"
+      //           className="nav-link"
+      //           to="/"
+      //         >
+      //           Lịch Chiếu
+      //         </NavLink>
+      //       </li>
+      //       <li className="nav-item">
+      //         <NavLink
+      //           activeClassName="active"
+      //           className="nav-link"
+      //           to="/about"
+      //         >
+      //           Cụm rạp
+      //         </NavLink>
+      //       </li>
+      //       <li className="nav-item">
+      //         <NavLink
+      //           activeClassName="active"
+      //           className="nav-link"
+      //           to="/list-movie"
+      //         >
+      //           Tin tức
+      //         </NavLink>
+      //       </li>
+      //       <li className="nav-item">
+      //         <a activeClassName="active" className="nav-link" href="#footer">
+      //           Ứng dụng
+      //         </a>
+      //       </li>
+      //       <li>
+      //         <Link activeClassName="active" className="nav-link" to="/">
+      //           <Countries />
+      //         </Link>
+      //       </li>
+      //       {this.showInfo()}
+      //     </ul>
+      //   </div>
+      // </nav>
     );
   }
 }

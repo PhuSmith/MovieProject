@@ -1,75 +1,82 @@
 import * as ActionType from "../types/QuanLyRapType";
 import Axios from "axios";
 
-export const actListCinemaApi = () => {
+export const actListTheatersApi = () => {
   return (dispatch) => {
-    dispatch(actListCinemaRequest());
+    dispatch(actListTheatersRequest());
     Axios({
       url:
         "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap",
       method: "GET",
     })
       .then((result) => {
-        dispatch(actListCinemaSuccess(result.data));
+        dispatch(actListTheatersSuccess(result.data));
       })
       .catch((err) => {
-        dispatch(actListCinemaFailed(err));
+        dispatch(actListTheatersFailed(err));
       });
   };
 };
 
-const actListCinemaRequest = () => {
+const actListTheatersRequest = () => {
   return {
-    type: ActionType.LIST_CINEMA_REQUEST,
+    type: ActionType.LIST_THEATERS_REQUEST,
   };
 };
 
-const actListCinemaSuccess = (data) => {
+const actListTheatersSuccess = (data) => {
   return {
-    type: ActionType.LIST_CINEMA_SUCCESS,
+    type: ActionType.LIST_THEATERS_SUCCESS,
     payload: data,
   };
 };
 
-const actListCinemaFailed = (err) => {
+const actListTheatersFailed = (err) => {
   return {
-    type: ActionType.LIST_CINEMA_FAILED,
+    type: ActionType.LIST_THEATERS_FAILED,
     payload: err,
   };
 };
 
-export const actDetailCinemaApi = (id) => {
+export const actDetailTheaterApi = (id) => {
   return (dispatch) => {
-    dispatch(actDetailCinemaRequest());
+    dispatch(actDetailTheaterRequest());
     Axios({
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${id}`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${id}&maNhom=GP02`,
       method: "GET",
     })
       .then((result) => {
-        dispatch(actDetailCinemaSuccess(result.data));
+        dispatch(actDetailTheaterSuccess(result.data));
       })
       .catch((err) => {
-        dispatch(actDetailCinemaFailed(err));
+        dispatch(actDetailTheaterFailed(err));
       });
   };
 };
 
-const actDetailCinemaRequest = () => {
+const actDetailTheaterRequest = () => {
   return {
-    type: ActionType.DETAIL_CINEMA_REQUEST,
+    type: ActionType.DETAIL_THEATER_REQUEST,
   };
 };
 
-const actDetailCinemaSuccess = (data) => {
+const actDetailTheaterSuccess = (data) => {
   return {
-    type: ActionType.DETAIL_CINEMA_SUCCESS,
+    type: ActionType.DETAIL_THEATER_SUCCESS,
     payload: data,
   };
 };
 
-const actDetailCinemaFailed = (err) => {
+const actDetailTheaterFailed = (err) => {
   return {
-    type: ActionType.DETAIL_CINEMA_FAILED,
+    type: ActionType.DETAIL_THEATER_FAILED,
     payload: err,
+  };
+};
+
+export const actMaHeThongRap = (data) => {
+  return {
+    type: ActionType.MA_HE_THONG_RAP,
+    payload: data,
   };
 };

@@ -1,13 +1,28 @@
-.center .slick-prev {
-  top: 50%;
-  left: 5% !important;
-  z-index: 100;
+.carousel .slick-dots {
   position: absolute;
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%);
 }
-.center .slick-next {
-  top: 50%;
-  right: 5% !important;
-  z-index: 100;
+
+li.slick-active .dot {
+  background-color: #fb4226 !important;
+}
+
+.carousel .slick-arrow {
   position: absolute;
-  /* background-image: url(../../assets/img/next-session.png); */
+  top: 45%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  height: 100px;
+  z-index: 2;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.carousel .slick-prev {
+  left: 3%;
 }
